@@ -5,7 +5,7 @@ $(document).ready(onReady);
 function onReady(){  //When Document is ready do...
     console.log('so ready');
 
-$('#form').on('#form', onSubmit);
+$('#form').on('submit', onSubmit);
 
 }
 
@@ -13,9 +13,16 @@ $('#form').on('#form', onSubmit);
 
 function onSubmit(event){
 
-event.preventDefault();
+    console.log('this is', this);
+
+    console.log('event',event);
+
+    event.preventDefault();
+
+    console.log('onSubmit');
    //grab Values from form
-let employeeData={
+
+   let employeeData={
     firstName:$(`#firstName`).val(),
     lastName:$(`#lastName`).val(),
     id:$(`#id`).val(),
@@ -23,7 +30,7 @@ let employeeData={
     annualSalary:$(`#annualSalary`).val(),
 }
 
-$(`#table`).append(`
+$(`#employeeTable`).append(`
 
     <tr>
         <td>${employeeData.firstName}</td>
