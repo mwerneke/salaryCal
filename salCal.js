@@ -41,7 +41,7 @@ function getSalFromDom(){
 function calculateMonthlySal(){
     let monthlySal= 0;
     for(let employeeData of salaryArray){
-        monthlySal += employeeData.annualSalary/12;
+        monthlySal += (employeeData.annualSalary); /// Not working
     }
     return monthlySal;
 }

@@ -9,7 +9,7 @@
     [x]Heading
     [x]Form Fields (_employee first name, last name, ID number, job title, annual salary_.)
 [x]Submit Button
-    []calculate Monthly cost
+    [x]calculate Monthly cost
     [x]append information(_employee first name, last name, ID number, job title, annual salary_.)
     []clear input fields
     []if monthly costs > 20K add red background to Monthly Cost
