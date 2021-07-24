@@ -1,5 +1,7 @@
 console.log('salCal sourced');
 
+
+
 $(document).ready(onReady);
 
 function onReady(){  //When Document is ready do...
@@ -22,7 +24,31 @@ function onSubmit(event){
     console.log('onSubmit');
    //grab Values from form
 
-   let employeeData={
+let salaryArray =[];
+
+let salary = getSalFromDom();  //Create a getSalFrom Dom Function
+
+salaryArray.push(salary)  
+
+let totalSalary = calculateMonthlySal(); // Creat calculate Monthly Sal function
+
+function getSalFromDom(){
+    let salary={
+        annualSalary:$(`#annualSalary`).val(),
+    }
+    return salary;
+}
+function calculateMonthlySal(){
+    let monthlySal= 0;
+    for(let employeeData of salaryArray){
+        monthlySal += employeeData.annualSalary/12;
+    }
+    return monthlySal;
+}
+
+   
+  
+let employeeData={
     firstName:$(`#firstName`).val(),
     lastName:$(`#lastName`).val(),
     id:$(`#id`).val(),
@@ -39,18 +65,17 @@ $(`#employeeTable`).append(`
         <td>${employeeData.id}</td>
         <td>${employeeData.jobTitle}</td>
         <td>${employeeData.annualSalary}</td>
-        <td><button>Delete Entry</td>
+        <td><button>Remove Employee</td>
        
 
     </tr>
    
 `);
-   
 
+$(`#Total`).append(totalSalary);
 
 }
-
-    
+ 
 
 
 
