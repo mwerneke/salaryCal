@@ -28,6 +28,7 @@ function onSubmit(event){
     id:$(`#id`).val(),
     jobTitle:$(`#jobTitle`).val(),
     annualSalary:$(`#annualSalary`).val(),
+    
 }
 
 $(`#employeeTable`).append(`
@@ -38,6 +39,8 @@ $(`#employeeTable`).append(`
         <td>${employeeData.id}</td>
         <td>${employeeData.jobTitle}</td>
         <td>${employeeData.annualSalary}</td>
+        <td><button>Delete Entry</td>
+       
 
     </tr>
    
