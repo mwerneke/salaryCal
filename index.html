@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <script src="jquery.js" charset="utf-8"></script>
-    
+    <link rel="stylesheet" href="salCal.css">
     <script src="salCal.js" charset="utf-8"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,13 +11,38 @@
 </head>
 <body>
    <h1>Salary Calculator</h1> 
-   <form><input type= 'text'> First Name:</form>
-   <form><input type= 'text'> Last Name:</form>
-   <form><input type= 'text'> ID:</form>
-   <form><input type= 'text'> Job Title:</form>
-   <form><input type= 'text'> Annual Salary:</form>
-    <button>Calculate</button>
+   <h4>Add Employee</h4>
+<div id=form>
+   <form id = "firstName"><input type= 'text'placeholder= 'First Name'> First Name</form>
+   <form id = "lastName"><input type= 'text'placeholder= 'Last Name'> Last Name</form>
+   <form id = "id"><input number= 'text'placeholder= 'ID'> ID</form>
+   <form id = "jobTitle"><input type= 'text'placeholder= 'Job Title'> Job Title</form>
+   <form id = "annualSalary"><input number= 'text'placeholder= 'Annual Salary'> Annual Salary</form>
+    <button id= "submit">Submit</button>
+</div>
+    <h4>Employees</h4>
 
+    <table style= "width:100%">
+        <tr> <!--Complete-->
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>ID</th>
+            <th>Job Title</th>
+            <th>Annual Salary</th>
+            <th>Remove Employee</th>
+        </tr>
+        <tr id= "table">  <!--Need Inputs-->
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button>RemoveEmployee</button></td>
+        </tr>
+    
+    </table>
+
+    <h2>Total Monthly:<span id ="Total">$TOTALEXPENSE</span></h2>
 
 </body>
 </html>
