@@ -7,23 +7,28 @@ h1 {
     margin-inline-end: 0px;
     font-weight: bold;
     text-align: center;
+    color:aliceblue;
+    background:black;
     
 }
 
 #employeeTable{
     text-align: center;
+    padding: 10px;
 }
 
 table{
-    width: 100%
+    width: 100%;
+    border-collapse: collapse;
 }
 table, tr,td{
     border: 1px solid black;
     text-align: center;
-   
-}
-
-#Total{
-
+    border-collapse: collapse;
+    padding: 10px;
     
 }
+h2{
+    font-size: 16px ;
+}
+

@@ -14,7 +14,7 @@
     [x]clear input fields
     [x]if monthly costs > 20K add red background to Monthly Cost
 [x]Delete Button
-    []remove an employee
+    []remove an employee  ### Unable to figure out solution
     []doesn't have to remove salary
 [] Submit Assignment
 

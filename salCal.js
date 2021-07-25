@@ -8,9 +8,14 @@ function onReady(){  //When Document is ready do...
     console.log('so ready');
 
 $('#form').on('submit', onSubmit);
+$(`#removeBtn`).on(`click`, deleteItem());
+
 
 }
-
+function deleteItem() {
+    console.log( 'in the deleteItem');
+    $(`#removeBtn`).siblings().remove(); 
+}
 // function to produce  VAL??
 
 function onSubmit(event){
@@ -24,19 +29,20 @@ function onSubmit(event){
     console.log('onSubmit');
    //grab Values from form
 
-let salary = getSalFromDom();  //Create a getSalFrom Dom Function
+    let salary = getSalFromDom();  //Create a getSalFrom Dom Function
 
-salaryArray.push(salary)  
+    salaryArray.push(salary)  
 
-let totalSalary = calculateMonthlySal(); // Creat calculate Monthly Sal function
-console.log(totalSalary);
-
-function getSalFromDom(){
+    let totalSalary = calculateMonthlySal(); // Creat calculate Monthly Sal function
+ 
+    function getSalFromDom(){
     let salary={
         annualSalary:$(`#annualSalary`).val(),
     }
     return salary;
 }
+
+//Calculates Monthly Salary and if greater than 20000, applies bckgrd
 function calculateMonthlySal(){
     let monthlySal= 0;
     for(let employeeData of salaryArray){
@@ -49,8 +55,7 @@ function calculateMonthlySal(){
 }
 
 
-
-  
+// Employee Data Object
 let employeeData={
     firstName:$(`#firstName`).val(),
     lastName:$(`#lastName`).val(),
@@ -59,14 +64,15 @@ let employeeData={
     annualSalary:$(`#annualSalary`).val(),
     
 }
-//clearing out form fields
-$(`#firstName`).val("");
+//Clearing out form fields
+$(`#firstName`).val("").focus();
 $(`#lastName`).val("");
 $(`#id`).val("");
 $(`#jobTitle`).val("");
 $(`#annualSalary`).val("");
 
-//appending the table of object
+
+//appending the table of objects to DOM
 $(`#employeeTable`).append(` 
 
     <tr>
@@ -83,19 +89,13 @@ $(`#employeeTable`).append(`
 `);
 
 
+
 $(`#Total`).text(totalSalary.toFixed(2));
 
-}
+
  
 
+}
 
 
-
-//Possibly us for on Submit
-//console.log('Test');
-//    let returnValues = $(`#firstName`).val();
- //   $('tr').append(`<td>${returnValues}</td>`);
-
- //focus on name input
- //$(`#nameInput`.focus();
 
