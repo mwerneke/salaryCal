@@ -11,9 +11,9 @@
 [x]Submit Button
     [x]calculate Monthly cost
     [x]append information(_employee first name, last name, ID number, job title, annual salary_.)
-    []clear input fields
-    []if monthly costs > 20K add red background to Monthly Cost
-[]Delete Button
+    [x]clear input fields
+    [x]if monthly costs > 20K add red background to Monthly Cost
+[x]Delete Button
     []remove an employee
     []doesn't have to remove salary
 [] Submit Assignment

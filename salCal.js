@@ -1,6 +1,6 @@
 console.log('salCal sourced');
 
-
+let salaryArray =[];
 
 $(document).ready(onReady);
 
@@ -24,13 +24,12 @@ function onSubmit(event){
     console.log('onSubmit');
    //grab Values from form
 
-let salaryArray =[];
-
 let salary = getSalFromDom();  //Create a getSalFrom Dom Function
 
 salaryArray.push(salary)  
 
 let totalSalary = calculateMonthlySal(); // Creat calculate Monthly Sal function
+console.log(totalSalary);
 
 function getSalFromDom(){
     let salary={
@@ -41,12 +40,16 @@ function getSalFromDom(){
 function calculateMonthlySal(){
     let monthlySal= 0;
     for(let employeeData of salaryArray){
-        monthlySal += (employeeData.annualSalary); /// Not working
+        monthlySal += Number(employeeData.annualSalary/12); /// Not working
+        if(monthlySal > 20000){
+            $("#Total").css("background-color", "red");
+        }
     }
     return monthlySal;
 }
 
-   
+
+
   
 let employeeData={
     firstName:$(`#firstName`).val(),
@@ -56,8 +59,15 @@ let employeeData={
     annualSalary:$(`#annualSalary`).val(),
     
 }
+//clearing out form fields
+$(`#firstName`).val("");
+$(`#lastName`).val("");
+$(`#id`).val("");
+$(`#jobTitle`).val("");
+$(`#annualSalary`).val("");
 
-$(`#employeeTable`).append(`
+//appending the table of object
+$(`#employeeTable`).append(` 
 
     <tr>
         <td>${employeeData.firstName}</td>
@@ -65,14 +75,15 @@ $(`#employeeTable`).append(`
         <td>${employeeData.id}</td>
         <td>${employeeData.jobTitle}</td>
         <td>${employeeData.annualSalary}</td>
-        <td><button>Remove Employee</td>
+        <td><button id= "removeBtn">Remove Employee</td>
        
 
     </tr>
    
 `);
 
-$(`#Total`).append(totalSalary);
+
+$(`#Total`).text(totalSalary.toFixed(2));
 
 }
  
