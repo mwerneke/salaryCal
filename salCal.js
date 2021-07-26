@@ -8,13 +8,17 @@ function onReady(){  //When Document is ready do...
     console.log('so ready');
 
 $('#form').on('submit', onSubmit);
-$(`.removeBtn`).on(`click`, `#employeeTable`, deleteItem());
+
+//Remove Btn
+$(`#employeeTable`).on(`click`,`.removeBtn` , deleteItem );
 
 
 }
+
+
 function deleteItem() {
-    console.log( 'in the deleteItem', $(this).parent());
-    $(this).parent().remove();
+    console.log( 'in the deleteItem', $( this ).parent().parent());
+    $( this ).parent().parent().remove();
     
     
 }
@@ -94,7 +98,6 @@ $(`#employeeTable`).append(`
 
 
 $(`#Total`).text(totalSalary.toFixed(2));
-
 
  
 
