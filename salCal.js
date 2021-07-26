@@ -61,7 +61,7 @@ function calculateMonthlySal(){
     return monthlySal;
 }
 
-cd
+
 // Employee Data Object
 let employeeData={
     firstName:$(`#firstName`).val(),
