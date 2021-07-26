@@ -8,13 +8,15 @@ function onReady(){  //When Document is ready do...
     console.log('so ready');
 
 $('#form').on('submit', onSubmit);
-$(`#removeBtn`).on(`click`, deleteItem());
+$(`.removeBtn`).on(`click`, `#employeeTable`, deleteItem());
 
 
 }
 function deleteItem() {
-    console.log( 'in the deleteItem');
-    $(`#removeBtn`).siblings().remove(); 
+    console.log( 'in the deleteItem', $(this).parent());
+    $(this).parent().remove();
+    
+    
 }
 // function to produce  VAL??
 
@@ -27,7 +29,8 @@ function onSubmit(event){
     event.preventDefault();
 
     console.log('onSubmit');
-   //grab Values from form
+   
+    //grab Values from form
 
     let salary = getSalFromDom();  //Create a getSalFrom Dom Function
 
@@ -40,8 +43,8 @@ function onSubmit(event){
         annualSalary:$(`#annualSalary`).val(),
     }
     return salary;
-}
 
+}
 //Calculates Monthly Salary and if greater than 20000, applies bckgrd
 function calculateMonthlySal(){
     let monthlySal= 0;
@@ -81,7 +84,7 @@ $(`#employeeTable`).append(`
         <td>${employeeData.id}</td>
         <td>${employeeData.jobTitle}</td>
         <td>${employeeData.annualSalary}</td>
-        <td><button id= "removeBtn">Remove Employee</td>
+        <td><button class= "removeBtn">Remove Employee</td>
        
 
     </tr>
